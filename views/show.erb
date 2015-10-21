@@ -1,0 +1,12 @@
+<section>
+  <h2><%= @item['item'] %></h2>
+  <article>
+    <strong>Item Details:</strong>
+    <p><%= @item['details'] %></p>
+  </article>
+  <a href="/items/<%= @item['id'] %>/edit">Edit</a>
+  <form method="post" action="/items/<%= @item['id'] %>/delete">
+    <button>Delete</button>
+  </form>
+
+</section>   
