@@ -35,7 +35,8 @@ post '/items' do
 
   sql = "INSERT INTO items (item, details) VALUES ('#{item}', '#{details}')"
   run_sql(sql)
-  redirect to('/items') # or can you get the id of the record created by the insert, and redirect to that?
+  last_item_id = find_last_item
+  redirect to("/items/#{last_item_id.to_i}") # or can you get the id of the record created by the insert, and redirect to that?
 end
 
 get '/items/:id' do
@@ -73,3 +74,12 @@ end
 def run_sql(sql)
   @db.exec(sql)
 end
+
+def find_last_item
+  sql = "SELECT * FROM items"
+  obj = run_sql(sql)
+  listarray = []
+  # binding.pry;''
+  obj.each {|item| listarray << item['id'] }
+  return listarray.last
+  end
