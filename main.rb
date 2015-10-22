@@ -40,7 +40,6 @@ post '/items' do
 end
 
 get '/items/:id' do
-
   sql = "select * from items where id = #{params['id'].to_i}"
   @item = run_sql(sql).first
   erb :show

@@ -4,8 +4,9 @@
     <dl>
       <dt>Item: </dt>
       <dd><%= item['item'] %></dd>
+      <a class="show" href="/items/<%= item['id'] %>">Show</a>
     </dl>
-    <a href="/items/<%= item['id'] %>">Show</a>
+
   </article>
   <% end %>
 </section>   
